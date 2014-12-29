@@ -40,3 +40,8 @@ A repository's status can be checked via:
                 ssh sunyk
 
 - Note that since git uses SSH to push content to a repository, creating this shortcut means that you wont have to type in your password everytime you push via git to the server
+
+
+###Command Line Tips###
+
+[command line tips](http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
