@@ -1,6 +1,7 @@
 #Getting Started with PHP#
 
-As with learning any programming language, I highly reccommend that you tackle the [tutorial](http://en.wikipedia.org/wiki/LAMP_%28software_bundle%29) on the official PHP website. This is a good way to learn the basics. In addition to this reading there will be a small assignment below to test your skills and understanding with PHP.
+As with learning any programming language, I highly reccommend that you tackle
+the [tutorial](http://php.net/manual/en/tutorial.php) on the official PHP website. This is a good way to learn the basics. In addition to this reading there will be a small assignment below to test your skills and understanding with PHP.
 
 ##PHP Assignment##
 
