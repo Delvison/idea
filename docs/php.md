@@ -14,3 +14,9 @@ This assignment will test your understanding of how PHP can be used to pass data
 - /var/www/html/nuwan/
 
 It is important to know how HTML forms work in general for this assignment. Remember, you can transmit data from one page to another via the HTTP POST or GET methods. Use GET for this example. I will explain how the server works and how to connect to it.
+
+##Submission##
+
+To upload the files to the server, you can use scp with the following command:
+
+    scp -i my_pem.pem file_to_send some_username@some_server:/directory_in_server
