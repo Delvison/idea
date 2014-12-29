@@ -24,7 +24,7 @@ A repository's status can be checked via:
 
 - You can connect to it via SSH using the appropriate key pem file with the following command:
 
-      ssh -i my_pem.pem some_username@some_server
+                ssh -i my_pem.pem some_username@some_server
 
 ###SSH Shortcut###
 
@@ -37,6 +37,6 @@ A repository's status can be checked via:
 
     - Now, you can login via SSH to the server via the following command:
 
-          ssh sunyk
+                ssh sunyk
 
 - Note that since git uses SSH to push content to a repository, creating this shortcut means that you wont have to type in your password everytime you push via git to the server
