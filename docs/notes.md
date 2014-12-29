@@ -30,10 +30,10 @@ A repository's status can be checked via:
 
 - You can create a shortcut for this in UNIX systems (mac/linux) by creating a config file in textfile *~/.ssh/config*. You might have to create both the .ssh folder and config text file if it does not already exist. Ensure that the pem file is in the same ~/.ssh folder and the config text file should look similar to this:
 
-      Host sunyk
-        HostName 54.149.232.134
-        IdentityFile ~/.ssh/SUNYK.pem
-        User delvison
+        Host sunyk
+                HostName 54.149.232.134
+                IdentityFile ~/.ssh/SUNYK.pem
+                User delvison
 
     - Now, you can login via SSH to the server via the following command:
 
