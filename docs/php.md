@@ -15,6 +15,14 @@ This assignment will test your understanding of how PHP can be used to pass data
 
 It is important to know how HTML forms work in general for this assignment. Remember, you can transmit data from one page to another via the HTTP POST or GET methods. Use GET for this example. I will explain how the server works and how to connect to it.
 
+##Testing on your Machine##
+
+Ensure you have php and apache installed on your machine. Ubuntu users can install this via:
+
+        sudo apt-get install php5 apache2
+        
+Files to be tested in this apache server should be placed in /var/www/html.
+
 ##Submission##
 
 To upload the files to the server, you can use scp with the following command:
