@@ -1,4 +1,4 @@
-#Getting Started with PHP#
+#Getting Started with Web Development#
 
 We will be using a web development language called PHP. In addition, you will be required to know HTML, CSS, and JavaScript as these are the standards for web development and it is difficult to ignore them. The following will attempt to shed some clarity on all of these tools.
 
