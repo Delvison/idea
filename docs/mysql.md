@@ -66,7 +66,7 @@ To view all data in our sample *potluck* table we can issue the following comman
 
 Often times, it occurs that data must be updated in a database. Considering our sample entry into our *potluck* table above, lets say we want to change the item Delvison is bringing from Pizza to Chicken. We can do so with the following command:
 
-    UPDATE `potluck` SET `food` = 'Chicken' WHERE `potluck`.`name` ='Delvison';
+    UPDATE potluck SET food= 'Chicken' WHERE potluck . name ='Delvison';
 
 ##How to Delete a Row in a Table##
 
