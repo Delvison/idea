@@ -17,9 +17,9 @@ It is important to know how HTML forms work in general for this assignment. Reme
 
 ##Testing on your Machine##
 
-Ensure you have php and apache installed on your machine. Ubuntu users can install this via:
+Ensure you have php,apache, and mysql installed on your machine. Ubuntu users can install this via:
 
-        sudo apt-get install php5 apache2
+        sudo apt-get install php5 apache2 mysql-client mysql-server
         
 Files to be tested in this apache server should be placed in /var/www/html.
 
