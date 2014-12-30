@@ -1,6 +1,12 @@
 #Getting Started with MySQL#
 
-This section is meant to introduce basic usage of MySQL. MySQL is a database software system that runs on a machine. One instance of MySQL can have multiple databases. One database can have multiple tables. One table can have multiple rows. Here, we will see how to log in to MySQL and how to create a database, create a table within a database, and how to add data and query data from a table.
+This section is meant to introduce basic usage of MySQL. MySQL is a database software system that runs on a machine. One instance of MySQL can have multiple databases. One database can have multiple tables. One table can have multiple rows and columns. Here, we will see how to log in to MySQL and how to create a database, create a table within a database, and how to add data and query data from a table.
+
+##Installing MySQL##
+
+Ubuntu users can install MySQL with the following command:
+
+        sudo apt-get install mysql-client mysql-server
 
 ##Logging into MySQL##
 
@@ -50,7 +56,7 @@ Once this table exist, we can ask MySQL to describe its layout to use using the 
 
 Once a database is selected, we can insert data into a table using the *INSERT INTO* command. The following example will insert data into the potluck table created above.
 
-    INSERT INTO `potluck` (`id`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, "Delvison", "Pizza","Y", '2014-12-25');
+    INSERT INTO potluck (id,name,food,confirmed,signup_date) VALUES (NULL, "Delvison", "Pizza","Y", '2014-12-25');
 
 To view all data in our sample *potluck* table we can issue the following command:
 
@@ -67,6 +73,13 @@ Often times, it occurs that data must be updated in a database. Considering our 
 Considering our sample *potluck* table, lets say that Delvison is no longer attending. Thus, we must remove his entry from the table. This can be done with the following command:
 
     DELETE FROM potluck WHERE 'name'='delvison';
+    
+##How to Connect to MySQL Remotely##
+
+Often times it occurs that MySQL is deployed on a dedicated separate server. To connect to a MySQL server remotely use the following command.
+
+     mysql -u USERNAME -p -h IP_HERE
+
 
 ##Doing More##
 
