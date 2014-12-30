@@ -1,6 +1,12 @@
 #Getting Started with MySQL#
 
-This section is meant to introduce basic usage of MySQL. MySQL is a database software system that runs on a machine. One instance of MySQL can have multiple databases. One database can have multiple tables. One table can have multiple rows. Here, we will see how to log in to MySQL and how to create a database, create a table within a database, and how to add data and query data from a table.
+This section is meant to introduce basic usage of MySQL. MySQL is a database software system that runs on a machine. One instance of MySQL can have multiple databases. One database can have multiple tables. One table can have multiple rows and columns. Here, we will see how to log in to MySQL and how to create a database, create a table within a database, and how to add data and query data from a table.
+
+##Installing MySQL##
+
+Ubuntu users can install MySQL with the following command:
+
+        sudo apt-get install mysql-client mysql-server
 
 ##Logging into MySQL##
 
