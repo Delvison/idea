@@ -28,3 +28,7 @@ Files to be tested in this apache server should be placed in /var/www/html.
 To upload the files to the server, you can use scp with the following command:
 
     scp -i my_pem.pem file_to_send some_username@some_server:/directory_in_server
+    
+#Connecting PHP to MySQL Database#
+
+PHP contains builtin functionality to interface with MySQL. Of course, you must first ensure that you have MySQL running on your machine and that a database exist. [This link](http://webcheatsheet.com/php/connect_mysql_database.php) contains some great example on how to interface with an existing database. 
