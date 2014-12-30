@@ -21,7 +21,7 @@ Ensure you have php,apache, and mysql installed on your machine. Ubuntu users ca
 
         sudo apt-get install php5 apache2 mysql-client mysql-server
         
-Files to be tested in this apache server should be placed in /var/www/html.
+Files to be tested in this apache server should be placed in /var/www/html. Remember, the IP address when testing on your own machine is 127.0.0.1 or localhost. You can type any of these two into your browser followed by the correct path to view files in /var/www/html.
 
 ##Submission##
 
