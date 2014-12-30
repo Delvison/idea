@@ -17,6 +17,9 @@ Whenever a new change is made in a repository remember to:
 A repository's status can be checked via:
 
     git status
+    
+###More Git Commands###
+[Git Cheat Sheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 
 #Seting up access to our server#
 
