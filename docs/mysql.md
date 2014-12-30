@@ -56,7 +56,7 @@ Once this table exist, we can ask MySQL to describe its layout to use using the 
 
 Once a database is selected, we can insert data into a table using the *INSERT INTO* command. The following example will insert data into the potluck table created above.
 
-    INSERT INTO `potluck` (`id`,`name`,`food`,`confirmed`,`signup_date`) VALUES (NULL, "Delvison", "Pizza","Y", '2014-12-25');
+    INSERT INTO potluck (id,name,food,confirmed,signup_date) VALUES (NULL, "Delvison", "Pizza","Y", '2014-12-25');
 
 To view all data in our sample *potluck* table we can issue the following command:
 
