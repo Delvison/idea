@@ -73,6 +73,13 @@ Often times, it occurs that data must be updated in a database. Considering our 
 Considering our sample *potluck* table, lets say that Delvison is no longer attending. Thus, we must remove his entry from the table. This can be done with the following command:
 
     DELETE FROM potluck WHERE 'name'='delvison';
+    
+##How to Connect to MySQL Remotely##
+
+Often times it occurs that MySQL is deployed on a dedicated separate server. To connect to a MySQL server remotely use the following command.
+
+     mysql -u USERNAME -p -h IP_HERE
+
 
 ##Doing More##
 
