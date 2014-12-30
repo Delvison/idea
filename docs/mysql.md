@@ -72,7 +72,7 @@ Often times, it occurs that data must be updated in a database. Considering our 
 
 Considering our sample *potluck* table, lets say that Delvison is no longer attending. Thus, we must remove his entry from the table. This can be done with the following command:
 
-    DELETE FROM potluck WHERE 'name'='delvison';
+    DELETE FROM potluck WHERE name='delvison';
     
 ##How to Connect to MySQL Remotely##
 
