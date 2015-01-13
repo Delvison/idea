@@ -1,13 +1,19 @@
 <?php
-  include 'lib/error_reporting.php';
+/**
+* This script is responsible for generating random salt's and hashing passwords.
+*/
 
-  /*
+  include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/error_reporing.php';
+
+  /**
   * Creates a random salt of length 8
+  * @author Delvison Castillo delvisoncastillo@gmail.com
   */
   function randomSalt()
   {
     $len = 8;
-    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`~!@#$%^&*()-=_+';
+    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij'.
+    'klmnopqrstuvwxyz0123456789`~!@#$%^&*()-=_+';
     $l = strlen($chars) - 1;
     $str = '';
     for ($i = 0; $i <$len; ++$i) {
@@ -20,6 +26,8 @@
   * creates a hash using a random salt.
   * @param string $string The string to be hashed
   * @param string $hash_method sha1
+  * @param string $salt Salt used for hashing
+  * @author Delvison Castillo delvisoncastillo@gmail.com
   */
   function create_hash($string, $hash_method = 'sha1', $salt)
   {
@@ -36,6 +44,7 @@
   * @param string $salt The salt pulled from the database
   * @param string $hash_method The hashing method used to generate the hashed
   * password
+  * @author Delvison Castillo delvisoncastillo@gmail.com
   */
   function validateLogin($pass, $hashed_pass, $salt, $hash_method = 'sha1')
   {
