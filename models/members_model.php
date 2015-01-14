@@ -83,5 +83,36 @@
     return $logged_in;
   }
 
+  /**
+  * Checks if a username exists on the session. If not, then it
+  * redirects to login page.
+  * @author Delvison Castillo delvisoncastillo@gmail.com
+  */
+  function check_login()
+  {
+    session_id('mySessionID');
+    session_start();
+    if (!isset($_SESSION['username']))
+    {
+      // redirect to the login page
+      header("Location: login.php");
+      die();
+    }
+    echo "<script>alert('failed');</script>";
+  }
+
+  /**
+  * Terminates a session and all of its variables.
+  * @author Delvison Castillo delvisoncastillo@gmail.com
+  */
+  function logout()
+  {
+    session_id('mySessionID');
+    session_start();
+    session_destroy();
+    header("Location: ../index.php");
+    die();
+  }
+
 
 ?>

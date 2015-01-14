@@ -18,16 +18,32 @@
 
     // called from models/members_model.php
     create_user($username, $password, $email, $date);
-    // TODO: Redirect appropriately
+
+    header("Location: ../login.php");
+    die();
   }
 
   if ($action == 'login')
   {
-    if ( login_user($username, $password) ) {
+    if ( login_user($username, $password) )
+    {
+      // start a new session
+      session_id('mySessionID');
+      session_start();
+      // save username to the session
+      $_SESSION['username'] = $username;
       echo "<br> LOGIN WAS SUCCESSFUL";
+      echo "<br> Logged in as ". $_SESSION['username'];
     } else {
       echo "<br> LOGIN WAS UNSUCCESSFUL";
     }
-    // TODO: Redirect appropriately
+
+    header("Location: ../index.php");
+    die();
+  }
+
+  if ($_GET['logout'] != NULL)
+  {
+    logout();
   }
 ?>
