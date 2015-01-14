@@ -34,12 +34,15 @@
       $_SESSION['username'] = $username;
       echo "<br> LOGIN WAS SUCCESSFUL";
       echo "<br> Logged in as ". $_SESSION['username'];
+      header("Location: ../index.php");
+      die();
     } else {
       echo "<br> LOGIN WAS UNSUCCESSFUL";
+      header("Location: ../login.php");
+      die();
+
     }
 
-    header("Location: ../index.php");
-    die();
   }
 
   if ($_GET['logout'] != NULL)
