@@ -16,15 +16,18 @@
     $email = $_POST['email'];
     $date = date("Y-m-d H:i:s");
 
-    echo $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
-
+    // called from models/members_model.php
     create_user($username, $password, $email, $date);
-
     // TODO: Redirect appropriately
   }
 
   if ($action == 'login')
   {
-    // TODO: Write login function
+    if ( login_user($username, $password) ) {
+      echo "<br> LOGIN WAS SUCCESSFUL";
+    } else {
+      echo "<br> LOGIN WAS UNSUCCESSFUL";
+    }
+    // TODO: Redirect appropriately
   }
 ?>

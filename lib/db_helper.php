@@ -14,11 +14,21 @@
   */
   function send_query($query, $db_hostname, $db_user, $db_password, $db_use)
   {
-    $db = mysqli_connect($db_hostname,$db_user,$db_password,$db_use) or
-      die("Unable to connect to mysql database");
+    $db = new mysqli($db_hostname,$db_user,$db_password,$db_use);
 
-    echo "<br>".$query;
-    mysqli_query($db,$query);
+    if ($db->connect_errno > 0){
+      die('Unable to connect to database');
+      return FALSE;
+      // TODO: Redirect appropriately
+    }
+
+    if ( !$result = $db->query($query) ){
+      die('The was an error with the query '. $query);
+      return FALSE;
+      // TODO: Redirect appropriately
+    } else {
+      return TRUE;
+    }
   }
 
   /**
@@ -30,20 +40,20 @@
   * @param string $db_use Desired mysql database for use
   * @author Delvison Castillo delvisoncastillo@gmail.com
   */
-  // function receive_query($query, $db_hostname, $db_user, $db_password, $db_use)
-  // {
-  //   $db = mysqli_connect($db_hostname,$db_user,$db_password,$db_use) or
-  //     die("Unable to connect to mysql database");
-  //
-  //   $result = mysqli_query($db_handle,"SELECT * FROM comments");
-  //
-  //   // if(!$result){
-  //   //   printf("Error: %s\n",mysqli_error($db_handle));
-  //   //   exit();
-  //   // }
-  //
-  //   // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-  //
-  //   return result;
-  // }
+  function receive_query($query, $db_hostname, $db_user, $db_password, $db_use)
+  {
+    $db = new mysqli($db_hostname,$db_user,$db_password,$db_use);
+
+    if ($db->connect_errno > 0){
+      die('Unable to connect to database');
+      // TODO: Redirect appropriately
+    }
+
+    if ( !$result = $db->query($query) ){
+      die('The was an error with the query '. $query);
+      // TODO: Redirect appropriately
+    } else {
+      return $result;
+    }
+  }
 ?>

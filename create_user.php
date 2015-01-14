@@ -1,13 +1,27 @@
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-  <form action="controllers/create_login.php" method="POST">
-    <p>Username:<input type="text" name="username"></input> </p>
-    <p>Email:<input type="text" name="email"></input> </p>
-    <p>Password:<input type="password" name="password"></input> </p>
+
+
+
+  <h4>Signup for Idea!</h4>
+  <form action="controllers/login_controller.php" method="POST">
+    <input style="height:30px" type="text" placeholder="username" name="username" />
+    </br>
+    <input style="height:30px" type="text" placeholder="email" name="email" />
+    </br>
+    <input style="height:30px" type="password" placeholder="password" name="password" />
+    </br>
     <input style="display:none" name="action" value="create_user"></input>
-    <button type="submit">signup</button>
+    <button type="submit" class="btn-primary">signup</button>
   </form>
-  </body>
+  <p>
+    Already have an account?
+    <a href="login.php">Login</a>
+  </p>
+
+
+</body>
 </html>
