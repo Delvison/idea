@@ -35,17 +35,8 @@
     " ('NULL','$username','$email','$hash','$salt','$date');";
 
     // called from lib/db_helper.php
-    $created = send_query($query, $db_hostname, $db_user, $db_password,
+    return send_query($query, $db_hostname, $db_user, $db_password,
     $members_db);
-
-    if ($created){
-      echo "Account successfully created.";
-    } else {
-      echo "Account not created.";
-    }
-
-    // TODO: check for errors in the query. for example, a username might
-    // already exist
   }
 
   /**
@@ -81,6 +72,37 @@
     $logged_in = validateLogin($password, $db_password, $db_salt, 'sha1');
 
     return $logged_in;
+  }
+
+  /**
+  * Checks if a username exists on the session. If not, then it
+  * redirects to login page.
+  * @author Delvison Castillo delvisoncastillo@gmail.com
+  */
+  function check_login()
+  {
+    session_id('mySessionID');
+    session_start();
+    if (!isset($_SESSION['username']))
+    {
+      // redirect to the login page
+      header("Location: login.php");
+      die();
+    }
+    echo "<script>alert('failed');</script>";
+  }
+
+  /**
+  * Terminates a session and all of its variables.
+  * @author Delvison Castillo delvisoncastillo@gmail.com
+  */
+  function logout()
+  {
+    session_id('mySessionID');
+    session_start();
+    session_destroy();
+    header("Location: ../index.php");
+    die();
   }
 
 

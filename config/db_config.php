@@ -19,7 +19,10 @@
   $members_db = "secure_login";
   $members_db_table = "members";
 
-
-
+  /* */
+  $idea_db = "idea_db";
+  $ideas_tables = "ideas";
+  $comments_tables = "comments";
+  $likes_tables = "likes";
 
 ?>

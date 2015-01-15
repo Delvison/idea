@@ -6,6 +6,7 @@
 */
 
   include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
+  include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/check_pwd.php';
 
   $action = $_POST['action'];
   $username = $_POST['username'];
@@ -13,21 +14,52 @@
 
   if ($action == 'create_user')
   {
-    $email = $_POST['email'];
-    $date = date("Y-m-d H:i:s");
+    // TODO: check if username or email already exists
 
-    // called from models/members_model.php
-    create_user($username, $password, $email, $date);
-    // TODO: Redirect appropriately
+    // check password for validity
+    if (check_pwd($password))
+    {
+
+      $email = $_POST['email'];
+      $date = date("Y-m-d H:i:s");
+
+      // called from models/members_model.php
+      if (create_user($username, $password, $email, $date) ){
+        header("Location: ../login.php");
+        die();
+      } else {
+        header("Location: ../create_user.php?error=failed");
+        die();
+      }
+    } else {
+      header("Location: ../create_user.php?error=invalid_passwd");
+      die();
+    }
   }
 
   if ($action == 'login')
   {
-    if ( login_user($username, $password) ) {
+    if ( login_user($username, $password) )
+    {
+      // start a new session
+      session_id('mySessionID');
+      session_start();
+      // save username to the session
+      $_SESSION['username'] = $username;
       echo "<br> LOGIN WAS SUCCESSFUL";
+      echo "<br> Logged in as ". $_SESSION['username'];
+      header("Location: ../index.php");
+      die();
     } else {
       echo "<br> LOGIN WAS UNSUCCESSFUL";
+      header("Location: ../login.php?error=inc_pass");
+      die();
     }
-    // TODO: Redirect appropriately
+
+  }
+
+  if ($_GET['logout'] != NULL)
+  {
+    logout();
   }
 ?>

@@ -23,8 +23,8 @@
     }
 
     if ( !$result = $db->query($query) ){
-      die('The was an error with the query '. $query);
       return FALSE;
+      //die('The was an error with the query '. $query);
       // TODO: Redirect appropriately
     } else {
       return TRUE;
@@ -46,12 +46,14 @@
 
     if ($db->connect_errno > 0){
       die('Unable to connect to database');
-      // TODO: Redirect appropriately
+      header("Location: error.php");
+      die();
     }
 
     if ( !$result = $db->query($query) ){
       die('The was an error with the query '. $query);
-      // TODO: Redirect appropriately
+      header("Location: error.php");
+      die();
     } else {
       return $result;
     }
