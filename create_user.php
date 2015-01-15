@@ -11,27 +11,27 @@
 </head>
 
 <body>
-
-  <h4>Signup for Idea!</h4>
-  <form action="controllers/login_controller.php" method="POST">
-    <input style="height:30px" type="text" placeholder="username" name="username" />
-    </br>
-    <input style="height:30px" type="text" placeholder="email" name="email" />
-    </br>
-    <input style="height:30px" type="password" placeholder="password" name="password" id="password" />
-    </br>
-    <div id="passwd_status">
-      <p id="meow">
-
+  <div class="hero-unit example">
+    <h2>Signup for Idea!</h2>
+    <form action="controllers/login_controller.php" method="POST">
+      <input style="height:30px" type="text" placeholder="username" name="username" />
+      </br>
+      <p>
+        <input style="height:30px" type="text" placeholder="email" name="email" id="email"/>
+        <p id="email_status"></p>
       </p>
-    </div>
-    <input style="display:none" name="action" value="create_user"></input>
-    <button type="submit" class="btn-primary">signup</button>
-  </form>
-  <p>
-    Already have an account?
-    <a href="login.php">Login</a>
-  </p>
+      <p>
+        <input style="height:30px" type="password" placeholder="password" name="password" id="password" />
+        <p id="passwd_status"></p>
+      </p>
+      <input style="display:none" name="action" value="create_user"></input>
+      <button type="submit" class="btn-primary">signup</button>
+    </form>
+    <p>
+      Already have an account?
+      <a href="login.php">Login</a>
+    </p>
+  </div>
 
   <script>
     $(document).ready(function()
@@ -39,21 +39,42 @@
       $('#password').bind('input',function()
       {
         if ( check_passwd( $('#password').val() ) ){
-          $('#meow').text('good password');
-          $('#meow').css('color','#00933b');
+          $('#passwd_status').text('good password');
+          $('#passwd_status').css('color','#00933b');
         } else {
-          $('#meow').text('bad password');
-          $('#meow').css('color','#cc0000');
+          $('#passwd_status').text('bad password');
+          $('#passwd_status').css('color','#cc0000');
         }
       });
     });
 
     $(document).ready(function()
     {
+      $('#email').bind('input',function()
+      {
+        var regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+        if ( $('#email').val().match(regexp) ){
+          $('#email_status').text('good email');
+          $('#email_status').css('color','#00933b');
+        } else {
+          $('#email_status').text('bad email');
+          $('#email_status').css('color','#cc0000');
+        }
+  });
+});
+
+    $(document).ready(function()
+    {
       var error = '<?php echo $_GET['error']; ?>';
       if (error == 'invalid_passwd') {
-        alert("Password should contain at least one number, one lower case character, one upper case character, and be of length eight.");
+        alert("Password should contain at least one number, "+
+        "one lower case character, one upper case character, "+
+        "and be of length eight.");
       }
+      if (error == 'failed') {
+        alert("Oops! Email or username already exists.");
+      }
+
     });
   </script>
 </body>

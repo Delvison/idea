@@ -35,17 +35,8 @@
     " ('NULL','$username','$email','$hash','$salt','$date');";
 
     // called from lib/db_helper.php
-    $created = send_query($query, $db_hostname, $db_user, $db_password,
+    return send_query($query, $db_hostname, $db_user, $db_password,
     $members_db);
-
-    if ($created){
-      echo "Account successfully created.";
-    } else {
-      echo "Account not created.";
-    }
-
-    // TODO: check for errors in the query. for example, a username might
-    // already exist
   }
 
   /**

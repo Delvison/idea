@@ -5,8 +5,8 @@
 * @author Delvison Castillo delvisoncastillo@gmail.com
 */
 
-include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
-include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/check_pwd.php';
+  include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
+  include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/check_pwd.php';
 
   $action = $_POST['action'];
   $username = $_POST['username'];
@@ -24,10 +24,13 @@ include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/check_pwd.php';
       $date = date("Y-m-d H:i:s");
 
       // called from models/members_model.php
-      create_user($username, $password, $email, $date);
-
-      header("Location: ../login.php");
-      die();
+      if (create_user($username, $password, $email, $date) ){
+        header("Location: ../login.php");
+        die();
+      } else {
+        header("Location: ../create_user.php?error=failed");
+        die();
+      }
     } else {
       header("Location: ../create_user.php?error=invalid_passwd");
       die();
