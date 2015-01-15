@@ -24,6 +24,16 @@
       <a href="create_user.php">Create an account</a>
     </p>
 
+    <script>
+      $(document).ready(function()
+      {
+        var error = '<?php echo $_GET['error']; ?>';
+        if (error == 'inc_pass') {
+          alert("Username or password is incorrect");
+        }
+      });
+
+    </script>
 
 </body>
 </html>

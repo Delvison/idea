@@ -78,7 +78,6 @@
 
   <div class="example footer">
     <hr /> Idea 2015
-    <?php echo "Logged in as " . $_SESSION['username']; ?>
   </div>
   <!--END FOOTER-->
 </body>

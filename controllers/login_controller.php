@@ -5,7 +5,8 @@
 * @author Delvison Castillo delvisoncastillo@gmail.com
 */
 
-  include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
+include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
+include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/check_pwd.php';
 
   $action = $_POST['action'];
   $username = $_POST['username'];
@@ -13,14 +14,24 @@
 
   if ($action == 'create_user')
   {
-    $email = $_POST['email'];
-    $date = date("Y-m-d H:i:s");
+    // TODO: check if username or email already exists
 
-    // called from models/members_model.php
-    create_user($username, $password, $email, $date);
+    // check password for validity
+    if (check_pwd($password))
+    {
 
-    header("Location: ../login.php");
-    die();
+      $email = $_POST['email'];
+      $date = date("Y-m-d H:i:s");
+
+      // called from models/members_model.php
+      create_user($username, $password, $email, $date);
+
+      header("Location: ../login.php");
+      die();
+    } else {
+      header("Location: ../create_user.php?error=invalid_passwd");
+      die();
+    }
   }
 
   if ($action == 'login')
@@ -38,9 +49,8 @@
       die();
     } else {
       echo "<br> LOGIN WAS UNSUCCESSFUL";
-      header("Location: ../login.php");
+      header("Location: ../login.php?error=inc_pass");
       die();
-
     }
 
   }
