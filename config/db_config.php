@@ -7,22 +7,20 @@
   // define('DB_USER', 'suny');
   // define('DB_PASSWORD', 'suny');
 
-	// parameters for database
+  /* PARAMETERS */
   $db_hostname = "54.149.232.134";
 	$db_user= "suny";
 	$db_password = "suny";
 
-  /* test database */
+  /* DATABASES */
+  $members_db = "secure_login";
+  $idea_db = "idea_db";
   $test_db = "test1";
 
-  /* user database */
-  $members_db = "secure_login";
-  $members_db_table = "members";
-
-  /* */
-  $idea_db = "idea_db";
-  $ideas_tables = "ideas";
-  $comments_tables = "comments";
-  $likes_tables = "likes";
+  /* TABLES */
+  $members_db_table = "members"; // db = secure_login
+  $ideas_tables = "ideas"; // db = idea_db
+  $comments_tables = "comments"; // db = idea_db
+  $likes_tables = "likes"; // db = idea_db
 
 ?>

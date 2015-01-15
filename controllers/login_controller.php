@@ -14,8 +14,6 @@
 
   if ($action == 'create_user')
   {
-    // TODO: check if username or email already exists
-
     // check password for validity
     if (check_pwd($password) && check_username($username))
     {
@@ -56,7 +54,6 @@
       header("Location: ../login.php?error=inc_pass");
       die();
     }
-
   }
 
   if ($_GET['logout'] != NULL)
