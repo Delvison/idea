@@ -16,7 +16,7 @@
 
 <body>
   <!-- NAVBAR -->
-  <div class="example">
+  <div class="page">
     <nav role="navigation" class="navbar navbar-default">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -30,21 +30,21 @@
       </div>
       <!-- Collection of nav links and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse">
-        <!-- <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#"></a></li>
-        </ul> -->
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.php">Home</a></li>
+          <li><a href="view_ideas.php">Ideas</a></li>
+        </ul>
+
         <ul class="nav navbar-nav navbar-right">
           <?php
-            if (!isset($_SESSION['username']))
-            {
-              echo '<li><a href="login.php">Login</a></li>';
-            } else{
-              echo "<li>".$_SESSION['username']."</li> ";
-              echo '  <a href="controllers/login_controller.php'.
-              '?logout=true">Logout</a>';
-            }
+          if (!isset($_SESSION['username']))
+          {
+            echo '<li><a href="login.php">Login</a></li>';
+          } else{
+            echo '<li><div style="margin-top:10px"><div style="padding-right:10px">'.$_SESSION['username']."</div></li> ";
+            echo '  <li><a href="controllers/login_controller.php'.
+            '?logout=true">Logout</a></div></li>';
+          }
           ?>
         </ul>
       </div>
@@ -53,7 +53,7 @@
   <!-- NAVBAR END -->
 
   <!-- MAIN -->
-  <div class="hero-unit example">
+  <div class="hero-unit page">
     <center>
       <h1> Welcome to Idea! </h1>
     </center>
@@ -78,7 +78,7 @@
 
   <!--FOOTER-->
 
-  <div class="example footer">
+  <div class="page footer">
     <hr /> Idea 2015
   </div>
   <!--END FOOTER-->

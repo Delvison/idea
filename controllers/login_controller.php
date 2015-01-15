@@ -17,14 +17,14 @@
     // TODO: check if username or email already exists
 
     // check password for validity
-    if (check_pwd($password))
+    if (check_pwd($password) && check_username($username))
     {
-
       $email = $_POST['email'];
       $date = date("Y-m-d H:i:s");
 
       // called from models/members_model.php
-      if (create_user($username, $password, $email, $date) ){
+      if (create_user($username, $password, $email, $date) )
+      {
         header("Location: ../login.php");
         die();
       } else {
@@ -32,6 +32,7 @@
         die();
       }
     } else {
+      // TODO: correctly error handle incorrect passwords and usernames
       header("Location: ../create_user.php?error=invalid_passwd");
       die();
     }

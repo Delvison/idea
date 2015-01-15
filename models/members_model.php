@@ -89,7 +89,6 @@
       header("Location: login.php");
       die();
     }
-    echo "<script>alert('failed');</script>";
   }
 
   /**

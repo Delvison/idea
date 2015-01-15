@@ -1,9 +1,27 @@
+
 .footer {
   text-align: center;
   vertical-align: middle;
   line-height: 90px;
 }
 
-.example {
+.page {
   margin: 20px;
+}
+
+.sidebar {
+  box-sizing: border-box;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.center-stage {
+  padding-left: 20px;
+  margin-top: 20px;
+}
+
+.block {
+  background: #fafafa;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }

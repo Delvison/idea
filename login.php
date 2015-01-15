@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <div class="hero-unit example">
+  <div class="hero-unit page">
     <h2>Login</h2>
     <form action="controllers/login_controller.php" method="POST">
       <input style="height:30px" type="text" placeholder="username" name="username" />
