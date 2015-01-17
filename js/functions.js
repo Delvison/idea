@@ -9,7 +9,8 @@ function check_passwd(password)
   if ( (password.match(/\d+/g)) &&
       (password.toUpperCase() != password) &&
       (password.toLowerCase() != password) &&
-      (password.length >= 8) )
+      (password.length >= 8) &&
+      (password.length <= 30))
   {
     return true;
   } else {

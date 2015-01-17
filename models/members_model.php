@@ -19,7 +19,7 @@
   */
   function create_user($username, $password, $email, $date)
   {
-    // global variables from db_config
+    // global variables from config/db_config.php
     global $members_db_table;
     global $db_hostname;
     global $db_user;
@@ -49,7 +49,7 @@
   */
   function login_user($username, $password)
   {
-    // global variables from db_config
+    // global variables from config/db_config
     global $members_db_table;
     global $db_hostname;
     global $db_user;

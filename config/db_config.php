@@ -15,12 +15,11 @@
   /* DATABASES */
   $members_db = "secure_login";
   $idea_db = "idea_db";
-  $test_db = "test1";
 
   /* TABLES */
   $members_db_table = "members"; // db = secure_login
-  $ideas_tables = "ideas"; // db = idea_db
-  $comments_tables = "comments"; // db = idea_db
-  $likes_tables = "likes"; // db = idea_db
+  $ideas__db_table = "ideas"; // db = idea_db
+  $comments_db_table = "comments"; // db = idea_db
+  $likes_db_table = "likes"; // db = idea_db
 
 ?>
