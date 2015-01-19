@@ -14,8 +14,11 @@
 
   if ($action == 'create_user')
   {
+    $passwd_check = check_pwd($password);
+    $username_check = check_username($username);
+
     // check password for validity
-    if (check_pwd($password) && check_username($username))
+    if ($passwd_check && $username_check)
     {
       $email = $_POST['email'];
       $date = date("Y-m-d H:i:s");
@@ -30,9 +33,16 @@
         die();
       }
     } else {
-      // TODO: correctly error handle incorrect passwords and usernames
-      header("Location: ../create_user.php?error=invalid_passwd");
-      die();
+      // check for invalid password
+      if (!$passwd_check){
+        header("Location: ../create_user.php?error=invalid_passwd");
+        die();
+      }
+      // check for invalid username
+      if (!$username_check){
+        header("Location: ../create_user.php?error=invalid_username");
+        die();
+      }
     }
   }
 

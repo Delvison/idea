@@ -81,6 +81,9 @@
         "one lower case character, one upper case character, "+
         "and be of length eight.");
       }
+      if (error == 'invalid_username') {
+        alert("Username should be of lenght four or more.");
+      }
       if (error == 'failed') {
         alert("Oops! Email or username already exists.");
       }

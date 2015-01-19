@@ -15,7 +15,9 @@
 		{
 			return TRUE;
 		}
-		else return FALSE;
+		else {
+			return FALSE;
+		}
 	}
 
 	/**
@@ -25,7 +27,7 @@
 	*/
 	function check_username($str)
 	{
-		if ( strlen($str) >= 8 &&
+		if ( strlen($str) >= 4 &&
 				strlen($str) <= 30)
 		{
 			return TRUE;
