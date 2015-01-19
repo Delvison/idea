@@ -19,9 +19,10 @@
     //date format
     $date = date("Y-m-d H:i:s");
 
-    $query = "INSERT INTO likes(id,idea_id,user_liked,date_created)" . " values('NULL','$idea_id','$user_liked','$date')";
+    $query = "INSERT INTO likes(id,idea_id,user_liked,date_created)"
+    . " values('NULL','$idea_id','$user_liked','$date')";
 
-     return send_query($query, $db_hostname, $db_user, $db_password, $db_user);
+     return send_query($query, $db_hostname, $db_user, $db_password, $idea_db);
   }
 
   function remove_like($like_id){  /**

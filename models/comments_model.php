@@ -102,8 +102,28 @@
     $query = "SELECT * FROM comments WHERE id='$comment_id'";
 
     return receive_query($query, $db_hostname,$db_user,$db_password,$idea_db);
-
   }
+
+  /**
+  * Gets all comments belong to an idea.
+  * @param $comment_id The ID of the comment to be fetched.
+  * @author Delvison Castillo delvisoncastillo@gmail.com
+  */
+  function get_ideas_comment($idea_id)
+  {
+    // global variables from config/db_config.php
+    global $comments_db_table;
+    global $db_hostname;
+    global $db_user;
+    global $db_password;
+    global $idea_db;
+
+    $query = "SELECT * FROM comments WHERE idea_id='$idea_id'";
+
+    return receive_query($query, $db_hostname,$db_user,$db_password,$idea_db);
+  }
+
+
   /**
   * Gets all comments for a given Idea pose
   * @param $idea_id The ID of the Idea post.

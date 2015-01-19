@@ -3,8 +3,7 @@
   * Controller script responsible for handling likes.
   * @author regis **/
 
-  require $_SERVER['DOCUMENT_ROOT'].'/models/likes_model.php';
-  require $_SERVER['DOCUMENT_ROOT'].'/lib/error_reporting.php';
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/models/likes_model.php';
 
   $action = $_POST['action'];
 
