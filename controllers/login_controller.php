@@ -11,13 +11,29 @@
   $action = $_POST['action'];
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $email = $_POST['email'];
 
   if ($action == 'create_user')
   {
-    // check password for validity
-    if (check_pwd($password) && check_username($username))
+    // check for invalid password
+    if (!check_pwd($password)){
+      header("Location: ../create_user.php?error=invalid_passwd");
+      die();
+    }
+    // check for invalid username
+    else if (!check_username($username)){
+      header("Location: ../create_user.php?error=invalid_username");
+      die();
+    }
+    // check for invalid email
+    else if (!check_email($email)){
+      header("Location: ../create_user.php?error=invalid_email&username=".
+      $username."&email=".$email);
+      die();
+    }
+    else // password and username valid. create user.
     {
-      $email = $_POST['email'];
+      // get current date
       $date = date("Y-m-d H:i:s");
 
       // called from models/members_model.php
@@ -26,13 +42,10 @@
         header("Location: ../login.php");
         die();
       } else {
-        header("Location: ../create_user.php?error=failed");
+        header("Location: ../create_user.php?error=failed&username=".
+        $username."&email=".$email);
         die();
       }
-    } else {
-      // TODO: correctly error handle incorrect passwords and usernames
-      header("Location: ../create_user.php?error=invalid_passwd");
-      die();
     }
   }
 

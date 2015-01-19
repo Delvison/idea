@@ -15,7 +15,9 @@
 		{
 			return TRUE;
 		}
-		else return FALSE;
+		else {
+			return FALSE;
+		}
 	}
 
 	/**
@@ -25,9 +27,22 @@
 	*/
 	function check_username($str)
 	{
-		if ( strlen($str) >= 8 &&
+		if ( strlen($str) >= 4 &&
 				strlen($str) <= 30)
 		{
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
+	/**
+	* This function checks whether a given email is valid.
+	* @author Delvison Castillo delvisoncastillo@gmail.com
+	*/
+	function check_email($str)
+	{
+		if (filter_var($str, FILTER_VALIDATE_EMAIL)) {
 			return TRUE;
 		} else {
 			return FALSE;

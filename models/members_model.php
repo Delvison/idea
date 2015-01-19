@@ -86,7 +86,7 @@
     if (!isset($_SESSION['username']))
     {
       // redirect to the login page
-      header("Location: login.php");
+      header("Location: login.php?error=login_first");
       die();
     }
   }

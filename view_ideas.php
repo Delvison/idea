@@ -16,8 +16,8 @@
 
   <body>
     <?php
-    // load navbar
-    require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
+      // load navbar
+      require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
     ?>
 
     <!-- BODY START -->
@@ -46,12 +46,9 @@
     </div>
     <!-- BODY END -->
 
-    <!--FOOTER-->
-    <div class="page footer">
-      <hr /> Idea 2015
-    </div>
-    <!--END FOOTER-->
-
-
+    <?php
+      // load navbar
+      require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/footer.php';
+    ?>
   </body>
 </html>

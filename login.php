@@ -9,10 +9,12 @@
   <script src="js/jquery-2.1.3.min.js"></script>
 </head>
 <body>
+
   <?php
-  // load navbar
-  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
+    // load navbar
+    require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
   ?>
+
   <div class="hero-unit page" style="margin-right:20%;margin-left:20%">
     <div class="container-fluid">
       <h2>Login</h2>
@@ -31,22 +33,22 @@
     </div>
   </div>
 
-
   <?php
-  // load navbar
-  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/footer.php';
+    // load navbar
+    require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/footer.php';
   ?>
 
-    <script>
-      $(document).ready(function()
-      {
-        var error = '<?php echo $_GET['error']; ?>';
-        if (error == 'inc_pass') {
-          alert("Username or password is incorrect");
-        }
-      });
-
-    </script>
-
+  <script>
+    $(document).ready(function()
+    {
+      var error = '<?php echo $_GET['error']; ?>';
+      if (error == 'inc_pass') {
+        alert("Username or password is incorrect");
+      }
+      if (error == 'login_first'){
+        alert("Oops! Please login first.");
+      }
+    });
+  </script>
 </body>
 </html>
