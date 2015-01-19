@@ -9,22 +9,33 @@
   <script src="js/jquery-2.1.3.min.js"></script>
 </head>
 <body>
-
-  <div class="hero-unit page">
-    <h2>Login</h2>
-    <form action="controllers/login_controller.php" method="POST">
-      <input style="height:30px" type="text" placeholder="username" name="username" />
-      </br>
-      <input style="height:30px" type="password" placeholder="password" name="password" />
-      </br>
-      <input style="display:none" name="action" value="login"></input>
-      <button type="submit" class="btn-primary">login</button>
-    </form>
-    <p>
-      Don't have an account?
-      <a href="create_user.php">Create an account</a>
-    </p>
+  <?php
+  // load navbar
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
+  ?>
+  <div class="hero-unit page" style="margin-right:20%;margin-left:20%">
+    <div class="container-fluid">
+      <h2>Login</h2>
+      <form action="controllers/login_controller.php" method="POST">
+        <input style="height:30px" type="text" placeholder="username" name="username" />
+        </br>
+        <input style="height:30px" type="password" placeholder="password" name="password" />
+        </br>
+        <input style="display:none" name="action" value="login"></input>
+        <button type="submit" class="btn-primary">login</button>
+      </form>
+      <p>
+        Don't have an account?
+        <a href="create_user.php">Create an account</a>
+      </p>
+    </div>
   </div>
+
+
+  <?php
+  // load navbar
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/footer.php';
+  ?>
 
     <script>
       $(document).ready(function()

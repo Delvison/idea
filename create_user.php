@@ -11,27 +11,37 @@
 </head>
 
 <body>
-  <div class="hero-unit page">
-    <h2>Signup for Idea!</h2>
-    <form action="controllers/login_controller.php" method="POST">
-      <input style="height:30px" type="text" placeholder="username" name="username" />
-      </br>
+  <?php
+  // load navbar
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
+  ?>
+  <div class="hero-unit page" style="margin-right:20%;margin-left:20%">
+      <div class="container-fluid">
+      <h2>Signup for Idea!</h2>
+      <form action="controllers/login_controller.php" method="POST">
+        <input style="height:30px" type="text" placeholder="username" name="username" />
+        </br>
+        <p>
+          <input style="height:30px" type="text" placeholder="email" name="email" id="email"/>
+          <p id="email_status"></p>
+        </p>
+        <p>
+          <input style="height:30px" type="password" placeholder="password" name="password" id="password" />
+          <p id="passwd_status"></p>
+        </p>
+        <input style="display:none" name="action" value="create_user"></input>
+        <button type="submit" class="btn-primary">signup</button>
+      </form>
       <p>
-        <input style="height:30px" type="text" placeholder="email" name="email" id="email"/>
-        <p id="email_status"></p>
+        Already have an account?
+        <a href="login.php">Login</a>
       </p>
-      <p>
-        <input style="height:30px" type="password" placeholder="password" name="password" id="password" />
-        <p id="passwd_status"></p>
-      </p>
-      <input style="display:none" name="action" value="create_user"></input>
-      <button type="submit" class="btn-primary">signup</button>
-    </form>
-    <p>
-      Already have an account?
-      <a href="login.php">Login</a>
-    </p>
+    </div>
   </div>
+  <?php
+  // load navbar
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/footer.php';
+  ?>
 
   <script>
     $(document).ready(function()

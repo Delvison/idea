@@ -51,7 +51,7 @@
     }
 
     if ( !$result = $db->query($query) ){
-      die('The was an error with the query '. $query);
+      die('The was an error with the query');
       header("Location: error.php");
       die();
     } else {

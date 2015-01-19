@@ -45,12 +45,9 @@
       session_start();
       // save username to the session
       $_SESSION['username'] = $username;
-      echo "<br> LOGIN WAS SUCCESSFUL";
-      echo "<br> Logged in as ". $_SESSION['username'];
       header("Location: ../index.php");
       die();
     } else {
-      echo "<br> LOGIN WAS UNSUCCESSFUL";
       header("Location: ../login.php?error=inc_pass");
       die();
     }
