@@ -7,28 +7,22 @@ $action = $_POST['action'];
 
 if ($action == 'create_like')
 {
-  function create_like($idea_id,$user_liked)
-  {
-  // global variables from config/db_config.php
-  global $ideas_db_table;
-  global $db_hostname;
-  global $db_user;
-  global $db_password;
-  global $idea_db;
+  // receive the idea id
+  $idea_id = $_POST['idea_id'];
 
-  //date format
-  $date = date("Y-m-d H:i:s");
-  $query = "INSERT INTO likes(id,idea_id,user_liked,date_created) values('NULL','$idea_id','$user_liked','$date')";
-  return send_query($query, $db_hostname, $db_user, $db_password, $db_use);
+  // get the user who liked the idea
+  $user_liked = $_POST['user_liked'];
+
+  // attempt to set the like. redirect view appropriately
+  if ( create_like($idea_id, $user_liked) )
+  {
+    // TODO: redirect appropiately after success
+    header("Location:index.php");
+    die();
+  } else {
+    header("Location: ../view_ideas.php?error=like_not_set");
+    die();
   }
-  header("Location:like.php");
-  die();
-}
-else
-{
-  echo "<br> CHECK YOUR CONNECTION";
-  header("Location: ../like.php?error=404_not_found");
-  die();
 }
 
   /**
