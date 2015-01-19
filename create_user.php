@@ -19,7 +19,7 @@
       <div class="container-fluid">
       <h2>Signup for Idea!</h2>
       <form action="controllers/login_controller.php" method="POST">
-        <input style="height:30px" type="text" placeholder="username" name="username" />
+        <input style="height:30px" type="text" placeholder="username" name="username" id="username" />
         </br>
         <p>
           <input style="height:30px" type="text" placeholder="email" name="email" id="email"/>
@@ -58,20 +58,20 @@
       });
     });
 
-    $(document).ready(function()
-    {
-      $('#email').bind('input',function()
-      {
-        var regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
-        if ( $('#email').val().match(regexp) ){
-          $('#email_status').text('good email');
-          $('#email_status').css('color','#00933b');
-        } else {
-          $('#email_status').text('bad email');
-          $('#email_status').css('color','#cc0000');
-        }
-  });
-});
+    // $(document).ready(function()
+    // {
+    //   $('#email').bind('input',function()
+    //   {
+    //     var regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$";
+    //     if ( $('#email').val().match(regexp) ){
+    //       $('#email_status').text('good email');
+    //       $('#email_status').css('color','#00933b');
+    //     } else {
+    //       $('#email_status').text('bad email');
+    //       $('#email_status').css('color','#cc0000');
+    //     }
+    //   });
+    // });
 
     $(document).ready(function()
     {
@@ -86,8 +86,14 @@
       }
       if (error == 'failed') {
         alert("Oops! Email or username already exists.");
+        $('#email').val("<?php echo $_GET['email'] ?>");
+        $('#username').val("<?php echo $_GET['username'] ?>");
       }
-
+      if (error == 'invalid_email') {
+        alert("Oops! Email doesn't appear to be valid.");
+        $('#email').val("<?php echo $_GET['email'] ?>");
+        $('#username').val("<?php echo $_GET['username'] ?>");
+      }
     });
   </script>
 </body>

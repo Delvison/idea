@@ -36,5 +36,18 @@
 		}
 	}
 
+	/**
+	* This function checks whether a given email is valid.
+	* @author Delvison Castillo delvisoncastillo@gmail.com
+	*/
+	function check_email($str)
+	{
+		if (filter_var($str, FILTER_VALIDATE_EMAIL)) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+
 
 ?>

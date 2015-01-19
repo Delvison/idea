@@ -11,16 +11,29 @@
   $action = $_POST['action'];
   $username = $_POST['username'];
   $password = $_POST['password'];
+  $email = $_POST['email'];
 
   if ($action == 'create_user')
   {
-    $passwd_check = check_pwd($password);
-    $username_check = check_username($username);
-
-    // check password for validity
-    if ($passwd_check && $username_check)
+    // check for invalid password
+    if (!check_pwd($password)){
+      header("Location: ../create_user.php?error=invalid_passwd");
+      die();
+    }
+    // check for invalid username
+    else if (!check_username($username)){
+      header("Location: ../create_user.php?error=invalid_username");
+      die();
+    }
+    // check for invalid email
+    else if (!check_email($email)){
+      header("Location: ../create_user.php?error=invalid_email&username=".
+      $username."&email=".$email);
+      die();
+    }
+    else // password and username valid. create user.
     {
-      $email = $_POST['email'];
+      // get current date
       $date = date("Y-m-d H:i:s");
 
       // called from models/members_model.php
@@ -29,18 +42,8 @@
         header("Location: ../login.php");
         die();
       } else {
-        header("Location: ../create_user.php?error=failed");
-        die();
-      }
-    } else {
-      // check for invalid password
-      if (!$passwd_check){
-        header("Location: ../create_user.php?error=invalid_passwd");
-        die();
-      }
-      // check for invalid username
-      if (!$username_check){
-        header("Location: ../create_user.php?error=invalid_username");
+        header("Location: ../create_user.php?error=failed&username=".
+        $username."&email=".$email);
         die();
       }
     }
