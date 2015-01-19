@@ -22,11 +22,11 @@
     // load navbar
     require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
     ?>
-    <form action="test_unlike.php" method="POST">
-      <input style="display:none" name="action" value="create_like" />
+    <form action="test_like.php" method="POST">
+      <input style="display:none" name="action" value="remove_like" />
       <input style="display:none" name="idea_id" value="1" />
-      <input style="display:none" name="user_liked" value="<?php echo $_SESSION['username']; ?>" />
-      <button type="submit"> Like </button>
+    <input style="display:none" name="user_liked" value="<?php echo $_SESSION['username']; ?>" />
+      <button type="submit"> Unlike </button>
     </form>
   </div>
   </body>
