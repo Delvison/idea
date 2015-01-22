@@ -1,3 +1,7 @@
+<?php
+	// Error page served to users when something wrong happens
+?>
+
 <html>
   <body>
     <?php
