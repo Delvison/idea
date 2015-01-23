@@ -49,6 +49,13 @@ Newest code can be pulled via:
 - Note that since git uses SSH to push content to a repository, creating this shortcut means that you wont have to type in your password everytime you push via git to the server
 
 
+###Adding server as a git remote location###
+
+You can create a bare git branch on a server and add it as a destination for you
+to push to with the following command:
+
+		git remote add origin USER@SERVER:/PATH/TO/REPO.git
+
 ###Command Line Tips###
 
 [command line tips](http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
