@@ -2,7 +2,7 @@
   /**
   * filename: image_controller.php
   * Controller responsible for handling image uploads
-  * @author Delvison Castillo
+  * @author Delvison Castillo delvisoncastillo@gmail.com
   */
 
   // to receive a file upload use $_FILES
