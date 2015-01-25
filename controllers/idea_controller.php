@@ -1,5 +1,4 @@
 <?php
-
 include $_SERVER['DOCUMENT_ROOT'].'/idea/models/ideas_model.php';
 
 /**
@@ -63,4 +62,5 @@ if ($action == 'update_idea')
 		// redirect
 	}
 }
+
 ?>
