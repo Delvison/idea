@@ -123,7 +123,6 @@
     return receive_query($query, $db_hostname,$db_user,$db_password,$idea_db);
   }
 
-
   /**
   * Gets all comments for a given Idea pose
   * @param $idea_id The ID of the Idea post.

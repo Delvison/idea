@@ -3,10 +3,10 @@
 * This script defines all functions responsible for dealing with the user model.
 */
 
-  include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/passwd.php';
-  include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/error_reporing.php';
-  include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/db_helper.php';
-  include $_SERVER['DOCUMENT_ROOT'].'/idea/config/db_config.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/idea/lib/passwd.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/idea/lib/error_reporing.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/idea/lib/db_helper.php';
+  include_once $_SERVER['DOCUMENT_ROOT'].'/idea/config/db_config.php';
 
   /**
   * Creates a user in the database.
