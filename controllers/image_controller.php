@@ -5,6 +5,8 @@
   * @author Delvison Castillo delvisoncastillo@gmail.com
   */
 
+  include_once $_SERVER['DOCUMENT_ROOT']. '/idea/models/image_model.php';
+
   // to receive a file upload use $_FILES
   // FILES explained: http://php.net/manual/en/reserved.variables.files.php
 
@@ -62,6 +64,12 @@
   @getimagesize($_FILES[$fieldname]['tmp_name'])
     or error('only image uploads are allowed', $uploadForm);
 
+  // TODO: Create a directory in uploads under a user's name to keep their
+  // uploads
+  // if (!file_exists('path/to/directory')) {
+  //   mkdir('path/to/directory', 0777, true);
+  // }
+
   // make a unique filename for the uploaded file and check it is not already
   // taken... if it is already taken keep trying until we find a vacant one
   // sample filename: 1140732936-filename.jpg
@@ -83,6 +91,15 @@
   // image successfully received
   // TODO: redirect appropriately
   echo "<h1>Image successfully uploaded</h1>";
+  // send image to database
+  if (store_image($uploadFilename))
+  {
+    //debug
+    echo "<h1>Image Successfully stored</h1>";
+  } else {
+    //debug
+    echo "<h1>Image Storing Failed</h1>";
+  }
 
   /**
   * This function is responsible for handling errors. Redirects to next

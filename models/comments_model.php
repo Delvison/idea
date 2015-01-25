@@ -73,9 +73,6 @@
     global $db_password;
     global $idea_db;
 
-    // get current datetime
-    $date = date("Y-m-d H:i:s");
-
     // construct query
     $query = "DELETE FROM comments WHERE comments . id='$comment_id'";
 

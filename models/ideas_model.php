@@ -16,9 +16,7 @@
 	*/
 	function create_idea($username,$idea)
 	{
-		// TODO: receive username from session
 		// global variables from config/db_config.php
-
 		global $idea_db;
 		global $ideas_db_table;
 		global $db_hostname;

@@ -92,6 +92,34 @@
   }
 
   /**
+ 	 * Takes in a username and gets their corresponsing ID from the database.
+   * Returns the users ID if successful and -1 if not.
+ 	 * @param String $username The username whose ID we want
+ 	 * @author Delvison Castillo delvisoncastillo@gmail.com
+	 */
+  function get_user_id($username)
+  {
+    // global variables from config/db_config.php
+    global $members_db_table;
+    global $db_hostname;
+    global $db_user;
+    global $db_password;
+    global $members_db;
+
+    $query = "SELECT * FROM $members_db_table WHERE username='$username';";
+
+    if ($result = receive_query($query, $db_hostname, $db_user,
+        $db_password,$members_db))
+    {
+      // extract record from query
+      $row = $result->fetch_array();
+      return $row['id'];
+    } else {
+      return -1;
+    }
+  }
+
+  /**
   * Terminates a session and all of its variables.
   * @author Delvison Castillo delvisoncastillo@gmail.com
   */

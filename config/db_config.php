@@ -21,5 +21,6 @@
   $ideas_db_table = "ideas"; // db = idea_db
   $comments_db_table = "comments"; // db = idea_db
   $likes_db_table = "likes"; // db = idea_db
+  $images_db_table = "images";
 
 ?>
