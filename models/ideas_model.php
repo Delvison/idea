@@ -4,11 +4,9 @@
 	include_once $_SERVER['DOCUMENT_ROOT']. '/idea/config/db_config.php';
 
 	/**
+	*  filename: ideas_model.php
 	*  This script defines all functions responsible for dealing with idea posts.
-	*  @author nuwan
 	*/
-
-
 
 	/**
 	* Creates a new Idea
@@ -22,7 +20,7 @@
 		// global variables from config/db_config.php
 
 		global $idea_db;
-		global $idea_db_table;
+		global $ideas_db_table;
 		global $db_hostname;
 		global $db_user;
 		global $db_password;
@@ -31,8 +29,8 @@
 		$date = date("Y-m-d H:i:s");
 
 		//create query : a new Idea has zero likes initially
-		$sql = "INSERT INTO $idea_db_table (id, username, post, likes, date_created)"
-		. " VALUES('NULL', '$user_name', '0', '$idea', '$date')";
+		$sql = "INSERT INTO $ideas_db_table (id, username, post, likes, date_created)".
+		" VALUES('NULL', '$username', '$idea', '0', '$date')";
 
 		return send_query($sql, $db_hostname, $db_user, $db_password, $idea_db);
 	}

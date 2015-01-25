@@ -11,7 +11,7 @@
         </button>
         <!-- <a href="index.php" class="navbar-brand">Idea</a> -->
         <div style="margin-top:6px; margin-left:10px; margin-right: 10px">
-          <img src="img/logo_mini.png" />
+          <img src="/idea/img/logo_mini.png" />
         </div>
       </div>
       <!-- Collection of nav links and other content for toggling -->

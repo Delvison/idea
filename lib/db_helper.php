@@ -23,8 +23,8 @@
     }
 
     if ( !$result = $db->query($query) ){
+      die('The was an error with the query '. $query);
       return FALSE;
-      //die('The was an error with the query '. $query);
       // TODO: Redirect appropriately
     } else {
       return TRUE;
