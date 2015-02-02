@@ -11,10 +11,10 @@
   $action = $_POST['action'];
   $username = $_POST['username'];
   $password = $_POST['password'];
-  $email = $_POST['email'];
 
   if ($action == 'create_user')
   {
+    $email = $_POST['email'];
     // check for invalid password
     if (!check_pwd($password)){
       header("Location: ../create_user.php?error=invalid_passwd");
