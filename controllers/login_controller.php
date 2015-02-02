@@ -30,6 +30,7 @@
       "../create_user.php?error=invalid_email&username="
       .$username."&email=".$email,TRUE,1);
 
+    date_default_timezone_set('Asia/Seoul');
     $date = date("Y-m-d H:i:s");
 
     // called from models/members_model.php

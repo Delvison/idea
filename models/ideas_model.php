@@ -24,6 +24,7 @@
 		global $db_password;
 
 		//get current date - time
+		date_default_timezone_set('Asia/Seoul');
 		$date = date("Y-m-d H:i:s");
 
 		//create query : a new Idea has zero likes initially
@@ -68,6 +69,7 @@
 		global $db_password;
 
 		// get current date - time
+		date_default_timezone_set('Asia/Seoul');
 		$date = date("Y-m-d H:i:s");
 
 		$sql = "UPDATE ideas SET post = '$new_idea' WHERE ideas.id = '$idea_id'";

@@ -24,6 +24,7 @@
 		// get image size
 		$size = filesize($image);
 		// get current date
+		date_default_timezone_set('Asia/Seoul');
 		$date = date("Y-m-d H:i:s");
 
 		if ( $user_id != -1)

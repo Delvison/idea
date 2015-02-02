@@ -17,6 +17,7 @@
     global $idea_db;
 
     //date format
+    date_default_timezone_set('Asia/Seoul');
     $date = date("Y-m-d H:i:s");
 
     $query = "INSERT INTO likes(id,idea_id,user_liked,date_created)"
