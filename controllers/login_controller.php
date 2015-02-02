@@ -7,6 +7,7 @@
 
   include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
   include $_SERVER['DOCUMENT_ROOT'].'/idea/lib/check_pwd.php';
+  include_once $_SERVER['DOCUMENT_ROOT']. '/idea/lib/functions.php';
 
   $action = $_POST['action'];
   $username = $_POST['username'];
@@ -15,37 +16,30 @@
 
   if ($action == 'create_user')
   {
-    // check for invalid password
-    if (!check_pwd($password)){
-      header("Location: ../create_user.php?error=invalid_passwd");
+    check_pwd($password)
+      or error("Invalid password.",
+      "../create_user.php?error=invalid_passwd",TRUE,1);
+
+    check_username($username)
+      or error("Invalid username.",
+      "../create_user.php?error=invalid_username",TRUE,1);
+
+    check_email($email)
+      or error("Invalid email.",
+      "../create_user.php?error=invalid_email&username="
+      .$username."&email=".$email,TRUE,1);
+
+    $date = date("Y-m-d H:i:s");
+
+    // called from models/members_model.php
+    if (create_user($username, $password, $email, $date) )
+    {
+      header("Location: ../login.php");
       die();
-    }
-    // check for invalid username
-    else if (!check_username($username)){
-      header("Location: ../create_user.php?error=invalid_username");
-      die();
-    }
-    // check for invalid email
-    else if (!check_email($email)){
-      header("Location: ../create_user.php?error=invalid_email&username=".
+    } else {
+      header("Location: ../create_user.php?error=failed&username=".
       $username."&email=".$email);
       die();
-    }
-    else // password and username valid. create user.
-    {
-      // get current date
-      $date = date("Y-m-d H:i:s");
-
-      // called from models/members_model.php
-      if (create_user($username, $password, $email, $date) )
-      {
-        header("Location: ../login.php");
-        die();
-      } else {
-        header("Location: ../create_user.php?error=failed&username=".
-        $username."&email=".$email);
-        die();
-      }
     }
   }
 

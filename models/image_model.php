@@ -12,7 +12,7 @@
 	* Function responsible for storing an image in the database
 	* @author Delvison Castillo delvisoncastillo@gmail.com
 	*/
-	function store_image($image)
+	function store_image($image, $user_id)
 	{
 		// global variables from config/db_config.php
 		global $idea_db;
@@ -21,14 +21,10 @@
 		global $db_user;
 		global $db_password;
 
-		//check if user is logged in
-		check_login();
 		// get image size
 		$size = filesize($image);
 		// get current date
 		$date = date("Y-m-d H:i:s");
-		// get user's ID who posted
-		$user_id = get_user_id($_SESSION['username']);
 
 		if ( $user_id != -1)
 		{
