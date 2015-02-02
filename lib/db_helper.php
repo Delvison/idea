@@ -4,6 +4,20 @@
 */
 
   /**
+  * Creates all neccessary databases if they do not exist
+  * @param string $db_hostname Mysql hostname to connect to
+  * @param string $db_user Mysql hostname username
+  * @param string $db_password Mysql hostname username's password
+  * @author Delvison Castillo delvisoncastillo@gmail.com
+  */
+  function create_databases($db_hostname, $db_user, $db_password)
+  {
+    // TODO: Write me!
+    // NOTE: More optimal to have a generic function that creates a certain
+    // database if it doesnt exist.
+  }
+
+  /**
   * Sends query to the mysql database
   * @param string $query Mysql desired query string
   * @param string $db_hostname Mysql hostname to connect to
@@ -17,13 +31,13 @@
     $db = new mysqli($db_hostname,$db_user,$db_password,$db_use);
 
     if ($db->connect_errno > 0){
-      die('Unable to connect to database');
+      //die('Unable to connect to database');
       return FALSE;
       // TODO: Redirect appropriately
     }
 
     if ( !$result = $db->query($query) ){
-      die('The was an error with the query '. $query);
+      //die('The was an error with the query '. $query);
       return FALSE;
       // TODO: Redirect appropriately
     } else {
