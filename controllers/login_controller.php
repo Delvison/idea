@@ -10,12 +10,13 @@
   include_once $_SERVER['DOCUMENT_ROOT']. '/idea/lib/functions.php';
 
   $action = $_POST['action'];
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  $email = $_POST['email'];
 
   if ($action == 'create_user')
   {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $email = $_POST['email'];
+
     check_pwd($password)
       or error("Invalid password.",
       "../create_user.php?error=invalid_passwd",TRUE,1);
@@ -43,8 +44,12 @@
     }
   }
 
+
   if ($action == 'login')
   {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
     if ( login_user($username, $password) )
     {
       // start a new session
