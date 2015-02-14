@@ -1,3 +1,7 @@
+<?php
+  // TODO: Make all links absolute
+?>
+
   <!-- NAVBAR -->
   <div class="page">
     <nav role="navigation" class="navbar navbar-default">

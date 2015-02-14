@@ -4,24 +4,25 @@
   * @author regis **/
 
   require $_SERVER['DOCUMENT_ROOT'].'/idea/models/likes_model.php';
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/models/ideas_model.php';
 
-  $action = $_POST['action'];
+  $action = $_GET['action'];
 
   echo $action;
 
   if ($action == 'create_like')
   {
     // receive the idea id
-    $idea_id = $_POST['idea_id'];
+    $idea_id = $_GET['idea_id'];
 
     // get the user who liked the idea
-    $user_liked = $_POST['user_liked'];
+    $user_liked = $_GET['user_liked'];
 
     // attempt to set the like. redirect view appropriately
-    if ( create_like($idea_id, $user_liked) )
+    if ( create_like($idea_id, $user_liked) && add_like($idea_id))
     {
       // TODO: redirect appropiately after success
-      header("Location:index.php");
+      header("Location:../view_ideas.php");
       die();
     } else {
       header("Location: ../view_ideas.php?error=like_not_set");

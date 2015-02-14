@@ -38,9 +38,11 @@
 
     if ( !$result = $db->query($query) ){
       //die('The was an error with the query '. $query);
+      mysqli_close($db);
       return FALSE;
       // TODO: Redirect appropriately
     } else {
+      mysqli_close($db);
       return TRUE;
     }
   }

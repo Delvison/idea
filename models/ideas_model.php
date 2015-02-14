@@ -79,6 +79,42 @@
 	}
 
 	/**
+	* Increment like count for an idea
+	*/
+	function add_like($idea_id)
+	{
+		// global variables from config/db_config.php
+		global $ideas_db_table;
+		global $db_hostname;
+		global $db_user;
+		global $db_password;
+		global $idea_db;
+
+		$query = "UPDATE $ideas_db_table SET likes = likes + 1 WHERE id=".$idea_id.";";
+
+		//called from lib/db_helper.php
+		return send_query($query, $db_hostname, $db_user, $db_password, $idea_db);
+	}
+
+	// /**
+	// * Decrement like count for an idea
+	// */
+	// function remove_like($idea_id)
+	// {
+	// 	// global variables from config/db_config.php
+	// 	global $idea_db;
+	// 	global $idea_db_table;
+	// 	global $db_hostname;
+	// 	global $db_user;
+	// 	global $db_password;
+	//
+	// 	$sql = "UPDATE ideas SET like = likes - 1 WHERE id='$idea_id'";
+	//
+	// 	//called from lib/db_helper.php
+	// 	return send_query($sql, $db_hostname, $db_user, $db_passsword, $idea_db);
+	// }
+
+	/**
 	* Removes an Idea of a given ID from the database
 	* @param $idea_id The ID of the Idea to be removed
 	* @author nuwan

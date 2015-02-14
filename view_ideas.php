@@ -1,54 +1,79 @@
 <?php
-  include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
-  check_login();
+include $_SERVER['DOCUMENT_ROOT'].'/idea/models/members_model.php';
+check_login();
 ?>
 
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="js/jquery-2.1.3.min.js"></script>
-  </head>
+<head>
+  <?php
+  // load scripts
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/scripts.php';
+  ?>
+</head>
 
-  <body>
-    <?php
-      // load navbar
-      require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
-    ?>
+<body>
+  <?php
+    // load navbar
+    require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/navbar.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/idea/models/ideas_model.php';
+  ?>
 
-    <!-- BODY START -->
-    <div class="page container-fluid ">
-      <div class="row-fluid">
-        <div id="sidebar" class="span3">
-          <aside class="sidebar">
-            <h2>Sidebar?</h2>
-            <ul>
-              <li>Whatever?</li>
-              <li>Man?</li>
-            </ul>
-          </aside>
+  <!-- BODY START -->
+  <div class="page container-fluid ">
+    <div class="row-fluid">
+      <div id="sidebar" class="span3">
+        <aside class="sidebar">
+          <h2>Sidebar?</h2>
+          <ul>
+            <li>Whatever?</li>
+            <li>Man?</li>
+          </ul>
+        </aside>
+      </div>
+      <div id="center-stage" class="span7 center-stage">
+
+        <div id="form" class="block">
+          <form id="post_idea" action="../controllers/idea_controller.php" method="POST">
+            <input type="text" name="idea" />
+            <input style="display:none" name="action" value="create_idea"/>
+            <button name="submit" type="submit">Post</button>
+          </form>
         </div>
-        <div id="center-stage" class="span7 center-stage">
-          <div class="block">
-            Lorem ipsum dolor sit amet, duo ut alii vocibus. Pro oratio explicari in, te vis partem nostrum. Cu qui sensibus argumentum, et quo utinam epicurei, no mea aeterno voluptatum intellegebat. Nam suas viris eu, fugit graeci eloquentiam vel an. Vix ut ubique
-            eloquentiam, ne congue appareat duo, ad mea illum appareat contentiones. Nullam referrentur adversarium quo ne, hinc invidunt signiferumque sit eu, tantas partem equidem eu duo. Id facer nominavi vix, graeci sanctus ne sed.
-          </div>
-          <div class="block">
-            Lorem ipsum dolor sit amet, duo ut alii vocibus. Pro oratio explicari in, te vis partem nostrum. Cu qui sensibus argumentum, et quo utinam epicurei, no mea aeterno voluptatum intellegebat. Nam suas viris eu, fugit graeci eloquentiam vel an. Vix ut ubique
-            eloquentiam, ne congue appareat duo, ad mea illum appareat contentiones. Nullam referrentur adversarium quo ne, hinc invidunt signiferumque sit eu, tantas partem equidem eu duo. Id facer nominavi vix, graeci sanctus ne sed.
-          </div>
-        </div>
+
+        <?php
+          // print all ideas with div class block
+          $result = get_all_ideas();
+          if ($result = get_all_ideas())
+          {
+            while ($row = $result->fetch_array())
+            {
+              echo '<div class="block">';
+              echo $row['username'] . "<br/>";
+              echo $row['post'] . "<br/>";
+              if ($row['likes'] > 0){
+                echo $row['likes'] . " likes</br>";
+              }
+              echo "<a href=\"controllers/like_controller.php?idea_id=".
+              $row['id']."&user_liked=".$_SESSION['username'].
+              "&action=create_like\">like</a>";
+              echo '</div>';
+            }
+
+          } else {
+            // no ideas exist
+            echo "<h1> No Ideas Exists </h1>";
+          }
+        ?>
+
+
       </div>
     </div>
-    <!-- BODY END -->
+  </div>
+  <!-- BODY END -->
 
-    <?php
-      // load navbar
-      require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/footer.php';
-    ?>
-  </body>
+  <?php
+  // load navbar
+  require $_SERVER['DOCUMENT_ROOT'].'/idea/includes/footer.php';
+  ?>
+</body>
 </html>
